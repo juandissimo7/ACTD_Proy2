@@ -151,6 +151,28 @@ write.csv(dfmod2_ar1ma3, 'C:/Users/juand/Downloads/fcast_ar1ma3.csv')
 write.csv(dfmod3_ar0ma3, 'C:/Users/juand/Downloads/fcast_ar0ma3.csv')
 
 
+plot(n_test)
+lines(pred.mod1$lower[,2], col='red')
+
+length(n_test)
+length()
+
+plot(pred.mod1$lower[,2])
+lines(as.data.frame(n_test))
+
+### Grafico comparativo al 95% de predicciones
+plot(as.vector(n_test), type='l',ylim=c(100,700),lwd=2, main='95% confidence forecast NFLX', ylab="Price")
+lines(as.vector(pred.mod1$lower[,2]), col=2, lwd=2, lty=3)
+lines(as.vector(pred.mod1$upper[,2]), col=2, lwd=2,lty=3)
+lines(as.vector(pred.mod2$lower[,2]), col=3, lwd=3,lty=2)
+lines(as.vector(pred.mod2$upper[,2]), col=3,lwd=2,lty=2)
+lines(as.vector(pred.mod3$lower[,2]), col=4, lwd=2,lty=1)
+lines(as.vector(pred.mod3$upper[,2]), col=4, lwd=2,lty=1)
+legend(x='topleft', legend = c("ARMA 3,1,3", "ARMA 1,1,3", "ARMA 0,1,3"),
+         col=c(2,3,4), lty = c(3,2,1), lwd=c(2,2,2))
+
+
+
 
 
 
